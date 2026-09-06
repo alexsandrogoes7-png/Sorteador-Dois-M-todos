@@ -2,7 +2,6 @@ const inputQuantidade = document.querySelector("#input-quantidade")
 const inputInicio = document.querySelector("#input-inicio")
 const inputFim = document.querySelector("#input-fim")
 
-const naoRepetir = document.querySelector("#nao-repetir")
 const botaoSortear = document.querySelector("#btn-sortear")
 
 const resultado = document.querySelector("#resultado")
@@ -18,6 +17,10 @@ const inputQuantidadeBench = document.querySelector("#input-quantidade-bench")
 const botaoSortearBench = document.querySelector("#btn-sortear-bench")
 const iconeSortearBench = document.querySelector("#icone-sortear-bench")
 const iconeNovamenteBench = document.querySelector("#icone-novamente-bench")
+const benchArea = document.querySelector("#bench-area")
+
+//Sortear Cripto
+const botaoCripto = document.querySelector("#btn-sortear-cripto")
 
 
 botaoSortear.addEventListener("click", () => {
@@ -25,6 +28,9 @@ botaoSortear.addEventListener("click", () => {
     if (formulario.classList.contains("hidden")) {
 
         formulario.classList.remove("hidden")
+        benchArea.classList.remove("hidden")
+        botaoCripto.classList.remove("hidden")
+
         resultado.classList.add("hidden")
         textoBotao.textContent = "Sortear"
 
@@ -51,10 +57,6 @@ botaoSortear.addEventListener("click", () => {
         return
     }
 
-    if (naoRepetir.checked && quantidade > (fim - inicio + 1)) {
-        alert("A quantidade de números não pode ser maior que o intervalo.")
-        return
-    }
 
 
 
@@ -62,24 +64,17 @@ botaoSortear.addEventListener("click", () => {
     const numeros = []
 
     while (numeros.length < quantidade) {
-
         const numeroAleatorio = Math.floor(
             Math.random() * (fim - inicio + 1)
         ) + inicio
 
-
-
-        if (naoRepetir.checked) {
-            if (!numeros.includes(numeroAleatorio)) {
-                numeros.push(numeroAleatorio)
-            }
-
-        } else {
-            numeros.push(numeroAleatorio)
-        }
+        numeros.push(numeroAleatorio)
     }
 
     formulario.classList.add("hidden")
+    benchArea.classList.add("hidden")
+    botaoCripto.classList.add("hidden")
+
 
     numerosSorteados.innerHTML = ""
 
@@ -159,6 +154,8 @@ botaoSortearBench.addEventListener("click", () => {
     const numeros = []
 
     while (numeros.length < quantidadeBench){
-        
+        const numeroAleatorio = Math.floor(
+            
+        )
     }
 })
