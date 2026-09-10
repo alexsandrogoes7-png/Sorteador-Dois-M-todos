@@ -18,6 +18,9 @@ const botaoSortearBench = document.querySelector("#btn-sortear-bench")
 const iconeSortearBench = document.querySelector("#icone-sortear-bench")
 const iconeNovamenteBench = document.querySelector("#icone-novamente-bench")
 const benchArea = document.querySelector("#bench-area")
+const resultadoBench = document.querySelector("#resultado-bench")
+const tabelaBench = document.querySelector("#tabela-bench")
+const botaoRetornar = document.querySelector("#btn-retornar")
 
 //Sortear Cripto
 const botaoCripto = document.querySelector("#btn-sortear-cripto")
@@ -149,13 +152,57 @@ botaoSortear.addEventListener("click", () => {
 
 botaoSortearBench.addEventListener("click", () => {
 
+
     const quantidadeBench = Number(inputQuantidadeBench.value)
 
     const numeros = []
+    const numerosCripto = []
 
     while (numeros.length < quantidadeBench){
         const numeroAleatorio = Math.floor(
-            
+            Math.random()*(100-1+1)+1
         )
+
+        const array = new Uint32Array(1)
+
+        crypto.getRandomValues(array)
+
+        const numeroCripto = (array[0] % 100) + 1
+
+        numeros.push(numeroAleatorio)
+
+        numerosCripto.push(numeroCripto)
     }
+
+        console.log(numeros)
+        console.log(numerosCripto)
+
+
+        numeros.forEach((numero, index) => {
+        tabelaBench.innerHTML += `
+        <tr>
+            <td>${index + 1}</td>
+            <td>${numero}</td>
+            <td>${numerosCripto[index]}</td>
+        </tr>
+        `})
+
+        resultadoBench.classList.remove("hidden")
+        benchArea.classList.add("hidden")
+        formulario.classList.add("hidden")
+        botaoCripto.classList.add("hidden")
+        botaoSortear.classList.add("hidden")
 })
+
+// Voltar ao início
+botaoRetornar.addEventListener("click", () => {
+    formulario.classList.remove("hidden")
+    benchArea.classList.remove("hidden")
+    botaoSortear.classList.remove("hidden")
+    botaoCripto.classList.remove("hidden")
+    resultadoBench.classList.add("hidden")
+
+    tabelaBench.innerHTML = ""
+})
+
+
