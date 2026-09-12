@@ -203,7 +203,7 @@ botaoSortearBench.addEventListener("click", () => {
         botaoSortear.classList.add("hidden")
 })
 
-// Voltar ao início
+
 botaoRetornar.addEventListener("click", () => {
     formulario.classList.remove("hidden")
     benchArea.classList.remove("hidden")
@@ -212,6 +212,22 @@ botaoRetornar.addEventListener("click", () => {
     resultadoBench.classList.add("hidden")
 
     tabelaBench.innerHTML = ""
+})
+
+botaoCripto.addEventListener("click",()=>{
+
+    const quantidade = Number(inputQuantidade.value)
+    const inicio = Number(inputInicio.value)
+    const fim = Number(inputFim.value)
+
+    const numeros = []
+
+    while(numeros.length<quantidade){
+        const array = new Uint32Array(1)
+
+        crypto.getRandomValues(array)
+        
+    }
 })
 
 
