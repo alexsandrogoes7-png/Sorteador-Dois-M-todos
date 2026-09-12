@@ -179,13 +179,22 @@ botaoSortearBench.addEventListener("click", () => {
 
 
         numeros.forEach((numero, index) => {
-        tabelaBench.innerHTML += `
-        <tr>
-            <td>${index + 1}</td>
-            <td>${numero}</td>
-            <td>${numerosCripto[index]}</td>
-        </tr>
-        `})
+            tabelaBench.innerHTML += `
+                <tr class="border-t border-[#24222e]">
+                    <td class="px-4 py-3 text-center font-mono text-sm font-bold text-[#a6a1ab]">
+                        ${index + 1}
+                    </td>
+
+                    <td class="px-4 py-3 text-center font-mono text-lg font-bold text-[#C58DE7]">
+                        ${numero}
+                    </td>
+
+                    <td class="px-4 py-3 text-center font-mono text-lg font-bold text-[#C58DE7]">
+                        ${numerosCripto[index]}
+                    </td>
+                </tr>
+            `
+        })
 
         resultadoBench.classList.remove("hidden")
         benchArea.classList.add("hidden")
