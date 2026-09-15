@@ -98,7 +98,18 @@
           id="painel-sorteador"
           class="w-full max-w-[390px] justify-self-center lg:justify-self-end"
         >
-          <div id="bench-area">
+
+
+          <div id="modal-area">
+            <button class="open-modal-button group mt-10 flex h-10 w-full items-center justify-center gap-2 rounded-md bg-[#24222e] font-flex text-[11px] font-bold uppercase text-white transition hover:bg-[#302c3d] focus:outline-none focus:ring-1 focus:ring-[#c388f7] mb-14">Benchmark</button>
+            
+            <div class="modal-container w-full h-screen bg-black/80 fixed left-0 top-0 grid items-center opacity-0 pointer-events-none">
+              <div class="modal bg-white w-[250px] h-[150px] p-[15px] rounded-[15px] shadow-md shadow-black/40 opacity-1 pointer-events-auto">
+                <p>Modal content</p>
+              </div>
+            </div>
+          </div>
+          <!-- <div id="bench-area">
             <div class="mb-4">
                   <span class="block font-flex text-[10px] font-bold uppercase text-[#a6a1ab]">
                     Quantidade de Números
@@ -133,7 +144,7 @@
                 </span>
               </button>
             </div>
-          </div>     
+          </div>      -->
           
           <div id="resultado-bench" class="hidden">
             <h2 class="flex items-center font-bold gap-2 text-2xl font-sora justify-center mb-4">Comparação dos sorteios</h2>
@@ -281,4 +292,5 @@
     </div>
   </body>
   <script src="scripts.js"></script>
+  <script src="modal.js"></script>
 </html>
