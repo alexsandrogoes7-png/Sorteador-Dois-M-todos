@@ -6,8 +6,16 @@ const container = getElement('.modal-container');
 
 const modal = getElement('.modal');
 
-const activeModalClass = '.modal-show';
+const openModal = () => {
+    container.classList.remove('opacity-0','pointer-events-none')
+    container.classList.add('opacity-1','pointer-events-auto')
+};
 
-const openModal = () => container.classList.add('activeModalClass');
+const closeModal = () =>{
+    container.classList.remove('opacity-100','pointer-events-auto');
+    container.classList.add('opacity-0','pointer-events-none');
+};
 
-const closeModal = () =>{};
+button.addEventListener('click',()=>{
+    openModal();
+});
