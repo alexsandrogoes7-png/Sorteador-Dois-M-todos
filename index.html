@@ -101,11 +101,103 @@
 
 
           <div id="modal-area">
-            <button class="open-modal-button group mt-10 flex h-10 w-full items-center justify-center gap-2 rounded-md bg-[#24222e] font-flex text-[11px] font-bold uppercase text-white transition hover:bg-[#302c3d] focus:outline-none focus:ring-1 focus:ring-[#c388f7] mb-14">Benchmark</button>
+            <button class="open-modal-button group mt-10 flex h-10 w-full items-center gap-2 rounded-md font-flex text-[11px] font-bold uppercase text-white transition mb-14 cursor-pointer underline decoration-2 decoration-purple-500">Benchmark</button>
             
             <div class="modal-container w-full h-screen bg-black/80 fixed left-0 top-0 grid grid-cols-2 items-center opacity-0 pointer-events-none transition-opacity duration-150">
-              <div class="modal bg-red-500 w-[40rem] h-[40rem] p-[15px] rounded-[15px] grid lg:col-start-2 shadow-md shadow-black/40 opacity-100 pointer-events-none">
-                <p>Modal content</p>
+
+              <div class="modal bg-purple-800 w-[40rem] h-[40rem] p-[15px] rounded-[15px] grid lg:col-start-2 shadow-md shadow-black/40 opacity-100 pointer-events-none">
+                    <div id="bench-area" class="">
+                      <h2 class="font-flex text-[20px] font-bold uppercase text-white">
+                        Quero sortear:
+                      </h2>
+
+                      <p
+                        class="mt-1 max-w-[350px] font-flex font-medium  [14px] leading-[1.55] text-white"
+                      >
+                        Comparação entre dois métodos de sorteio.
+                      </p>
+
+                      <div class="mt-7 flex gap-4">
+
+                        
+                        <label class="block ">
+                          <span
+                            class="mb-2 block font-flex text-[10px] font-bold uppercase text-white"
+                          >
+                            Números
+                          </span>
+
+                          <input
+                            id="quant-bench"
+                            type="text"
+                            value="10"
+                            aria-label="Quantidade de números"
+                            class="h-[56px] w-[86px] rounded-md border border-transparent bg-[#17171e]/60 px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-[#76628a] focus:border-[#c388f7]"
+                          />
+                        </label>
+
+                        <label class="block">
+                          <span
+                            class="mb-2 block font-flex text-[10px] font-bold uppercase text-white"
+                          >
+                            Até
+                          </span>
+
+                          <input
+                            id="num-max"
+                            type="text"
+                            value="100"
+                            aria-label="Número final"
+                            class="h-[56px] w-[86px] rounded-md border border-transparent bg-[#17171e]/60 px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-[#76628a] focus:border-[#c388f7]"
+                          />
+                        </label>
+
+                      </div>
+
+                        <button
+                          id="btn-sortear-bench"
+                          type="button"
+                          class="group flex mt-10 h-10 w-full items-center justify-center gap-2 rounded-md bg-[#121212] font-flex text-[11px] font-bold uppercase text-white transition hover:bg-[#302c3d] focus:outline-none focus:ring-1 focus:ring-[#c388f7] cursor-pointer"
+                        >
+                          <span id="bench-button">Gerar Benchmark</span>
+
+                          <span id="icone-sortear-bench">→</span>
+
+                          <span id="icone-novamente-bench" class="hidden">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.75C6.89136 2.75 2.75 6.89136 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 11.5858 21.5858 11.25 22 11.25C22.4142 11.25 22.75 11.5858 22.75 12C22.75 17.937 17.937 22.75 12 22.75C6.06293 22.75 1.25 17.937 1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C14.7937 1.25 17.339 2.31639 19.25 4.06269V2.5C19.25 2.08579 19.5858 1.75 20 1.75C20.4142 1.75 20.75 2.08579 20.75 2.5V6C20.75 6.41421 20.4142 6.75 20 6.75H16.5C16.0858 6.75 15.75 6.41421 15.75 6C15.75 5.58579 16.0858 5.25 16.5 5.25H18.3246C16.6699 3.69872 14.446 2.75 12 2.75Z" fill="white"/>
+                              <path d="M15.9453 12.3577C15.7686 12.9844 14.9333 13.4273 13.2629 14.3131C11.648 15.1693 10.8406 15.5975 10.1899 15.4254C9.9209 15.3542 9.6758 15.2191 9.47812 15.0329C9 14.5827 9 13.7094 9 11.9629C9 10.2163 9 9.34307 9.47812 8.89284C9.6758 8.7067 9.9209 8.57157 10.1899 8.50042C10.8406 8.32833 11.648 8.75646 13.2629 9.61272C14.9333 10.4985 15.7686 10.9414 15.9453 11.5681C16.0182 11.8268 16.0182 12.099 15.9453 12.3577Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                          </span>
+                        </button>
+
+                        <div id="resultado-bench" class="hidden">
+                          <h2 class="flex items-center font-bold gap-2 text-2xl font-sora justify-center mb-4">Comparação dos sorteios</h2>
+
+                          <table class="w-full overflow-hidden rounded-md bg-[#0f0e13]">
+                            <thead class="bg-[#0f0e13]">
+                              <tr>
+                                <th class="px-4 py-3 text-center font-flex text-[10px] font-bold uppercase text-[#a6a1ab]">Nº</th>
+                                <th class="px-4 py-3 text-center font-flex text-[10px] font-bold uppercase text-[#a6a1ab]">Sorteio normal</th>
+                                <th class="px-4 py-3 text-center font-flex text-[10px] font-bold uppercase text-[#a6a1ab]">Sorteio criptografado</th>
+                              </tr>
+                            </thead>
+
+                            <tbody id="tabela-bench">
+                            </tbody>
+                          </table>
+
+
+                          <button class="flex h-10 w-full items-center justify-center gap-2 rounded-md bg-[#24222e] font-flex text-[11px] font-bold uppercase text-white transition hover:bg-[#302c3d] focus:outline-none focus:ring-1 focus:ring-[#c388f7] mt-4"
+                            id="btn-retornar"
+                            type="button"
+                          >
+                            Voltar ao início
+                          </button>
+                        </div>
+                        
+                    </div>
               </div>
             </div>
           </div>
@@ -145,31 +237,6 @@
               </button>
             </div>
           </div>      -->
-          
-          <div id="resultado-bench" class="hidden">
-            <h2 class="flex items-center font-bold gap-2 text-2xl font-sora justify-center mb-4">Comparação dos sorteios</h2>
-
-            <table class="w-full overflow-hidden rounded-md bg-[#0f0e13]">
-              <thead class="bg-[#0f0e13]">
-                <tr>
-                  <th class="px-4 py-3 text-center font-flex text-[10px] font-bold uppercase text-[#a6a1ab]">Nº</th>
-                  <th class="px-4 py-3 text-center font-flex text-[10px] font-bold uppercase text-[#a6a1ab]">Sorteio normal</th>
-                  <th class="px-4 py-3 text-center font-flex text-[10px] font-bold uppercase text-[#a6a1ab]">Sorteio criptografado</th>
-                </tr>
-              </thead>
-
-              <tbody id="tabela-bench">
-              </tbody>
-            </table>
-
-
-            <button class="flex h-10 w-full items-center justify-center gap-2 rounded-md bg-[#24222e] font-flex text-[11px] font-bold uppercase text-white transition hover:bg-[#302c3d] focus:outline-none focus:ring-1 focus:ring-[#c388f7] mt-4"
-              id="btn-retornar"
-              type="button"
-            >
-              Voltar ao início
-            </button>
-          </div>
 
           <div id="formulario">
             <h2 class="font-flex text-[14px] font-bold uppercase text-white">

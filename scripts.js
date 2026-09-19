@@ -13,8 +13,8 @@ const iconeSortear = document.querySelector("#icone-sortear")
 const iconeNovamente = document.querySelector("#icone-novamente")
 
 //Sortear Benchmark
-const inputQuantidadeBench = document.querySelector("#input-quantidade-bench")
-const botaoSortearBench = document.querySelector("#btn-sortear-bench")
+const inputQuantidadeBench = document.querySelector("#quant-bench")
+const botaoSortearBench = document.querySelector("#bench-button")
 const iconeSortearBench = document.querySelector("#icone-sortear-bench")
 const iconeNovamenteBench = document.querySelector("#icone-novamente-bench")
 const benchArea = document.querySelector("#modal-area")
@@ -150,69 +150,69 @@ botaoSortear.addEventListener("click", () => {
 })
 
 
-// botaoSortearBench.addEventListener("click", () => {
+botaoSortearBench.addEventListener("click", () => {
 
 
-//     const quantidadeBench = Number(inputQuantidadeBench.value)
+    const quantidadeBench = Number(inputQuantidadeBench.value)
 
-//     const numeros = []
-//     const numerosCripto = []
+    const numeros = []
+    const numerosCripto = []
 
-//     while (numeros.length < quantidadeBench){
-//         const numeroAleatorio = Math.floor(
-//             Math.random()*(100-1+1)+1
-//         )
+    while (numeros.length < quantidadeBench){
+        const numeroAleatorio = Math.floor(
+            Math.random()*(100-1+1)+1
+        )
 
-//         const array = new Uint32Array(1)
+        const array = new Uint32Array(1)
 
-//         crypto.getRandomValues(array)
+        crypto.getRandomValues(array)
 
-//         const numeroCripto = (array[0] % 100) + 1
+        const numeroCripto = (array[0] % 100) + 1
 
-//         numeros.push(numeroAleatorio)
+        numeros.push(numeroAleatorio)
 
-//         numerosCripto.push(numeroCripto)
-//     }
+        numerosCripto.push(numeroCripto)
+    }
 
-//         console.log(numeros)
-//         console.log(numerosCripto)
-
-
-//         numeros.forEach((numero, index) => {
-//             tabelaBench.innerHTML += `
-//                 <tr class="border-t border-[#24222e]">
-//                     <td class="px-4 py-3 text-center font-mono text-sm font-bold text-[#a6a1ab]">
-//                         ${index + 1}
-//                     </td>
-
-//                     <td class="px-4 py-3 text-center font-mono text-lg font-bold text-[#C58DE7]">
-//                         ${numero}
-//                     </td>
-
-//                     <td class="px-4 py-3 text-center font-mono text-lg font-bold text-[#C58DE7]">
-//                         ${numerosCripto[index]}
-//                     </td>
-//                 </tr>
-//             `
-//         })
-
-//         resultadoBench.classList.remove("hidden")
-//         benchArea.classList.add("hidden")
-//         formulario.classList.add("hidden")
-//         botaoCripto.classList.add("hidden")
-//         botaoSortear.classList.add("hidden")
-// })
+        console.log(numeros)
+        console.log(numerosCripto)
 
 
-// botaoRetornar.addEventListener("click", () => {
-//     formulario.classList.remove("hidden")
-//     benchArea.classList.remove("hidden")
-//     botaoSortear.classList.remove("hidden")
-//     botaoCripto.classList.remove("hidden")
-//     resultadoBench.classList.add("hidden")
+        numeros.forEach((numero, index) => {
+            tabelaBench.innerHTML += `
+                <tr class="border-t border-[#24222e]">
+                    <td class="px-4 py-3 text-center font-mono text-sm font-bold text-[#a6a1ab]">
+                        ${index + 1}
+                    </td>
 
-//     tabelaBench.innerHTML = ""
-// })
+                    <td class="px-4 py-3 text-center font-mono text-lg font-bold text-[#C58DE7]">
+                        ${numero}
+                    </td>
+
+                    <td class="px-4 py-3 text-center font-mono text-lg font-bold text-[#C58DE7]">
+                        ${numerosCripto[index]}
+                    </td>
+                </tr>
+            `
+        })
+
+        resultadoBench.classList.remove("hidden")
+        benchArea.classList.add("hidden")
+        formulario.classList.add("hidden")
+        botaoCripto.classList.add("hidden")
+        botaoSortear.classList.add("hidden")
+})
+
+
+botaoRetornar.addEventListener("click", () => {
+    formulario.classList.remove("hidden")
+    benchArea.classList.remove("hidden")
+    botaoSortear.classList.remove("hidden")
+    botaoCripto.classList.remove("hidden")
+    resultadoBench.classList.add("hidden")
+
+    tabelaBench.innerHTML = ""
+})
 
 botaoCripto.addEventListener("click",()=>{
 
