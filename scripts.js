@@ -14,13 +14,14 @@ const iconeNovamente = document.querySelector("#icone-novamente")
 
 //Sortear Benchmark
 const inputQuantidadeBench = document.querySelector("#quant-bench")
-const botaoSortearBench = document.querySelector("#bench-button")
+const botaoSortearBench = document.querySelector("#btn-sortear-bench")
 const iconeSortearBench = document.querySelector("#icone-sortear-bench")
 const iconeNovamenteBench = document.querySelector("#icone-novamente-bench")
-const benchArea = document.querySelector("#modal-area")
+const benchArea = document.querySelector("#bench-area")
 const resultadoBench = document.querySelector("#resultado-bench")
 const tabelaBench = document.querySelector("#tabela-bench")
 const botaoRetornar = document.querySelector("#btn-retornar")
+const modalBench = document.querySelector('#modal-bench-area')
 
 //Sortear Cripto
 const botaoCripto = document.querySelector("#btn-sortear-cripto")
@@ -75,7 +76,7 @@ botaoSortear.addEventListener("click", () => {
     }
 
     formulario.classList.add("hidden")
-    benchArea.classList.add("hidden")
+    
     botaoCripto.classList.add("hidden")
 
 
@@ -196,8 +197,10 @@ botaoSortearBench.addEventListener("click", () => {
             `
         })
 
+        console.log(tabelaBench.innerHTML)
+
         resultadoBench.classList.remove("hidden")
-        benchArea.classList.add("hidden")
+        modalBench.classList.add('hidden')
         formulario.classList.add("hidden")
         botaoCripto.classList.add("hidden")
         botaoSortear.classList.add("hidden")
@@ -209,25 +212,27 @@ botaoRetornar.addEventListener("click", () => {
     benchArea.classList.remove("hidden")
     botaoSortear.classList.remove("hidden")
     botaoCripto.classList.remove("hidden")
+    modalBench.classList.remove('hidden')
     resultadoBench.classList.add("hidden")
+    
 
     tabelaBench.innerHTML = ""
 })
 
-botaoCripto.addEventListener("click",()=>{
+// botaoCripto.addEventListener("click",()=>{
 
-    const quantidade = Number(inputQuantidade.value)
-    const inicio = Number(inputInicio.value)
-    const fim = Number(inputFim.value)
+//     const quantidade = Number(inputQuantidade.value)
+//     const inicio = Number(inputInicio.value)
+//     const fim = Number(inputFim.value)
 
-    const numeros = []
+//     const numeros = []
 
-    while(numeros.length<quantidade){
-        const array = new Uint32Array(1)
+//     while(numeros.length<quantidade){
+//         const array = new Uint32Array(1)
 
-        crypto.getRandomValues(array)
+//         crypto.getRandomValues(array)
         
-    }
-})
+//     }
+// })
 
 
