@@ -197,13 +197,14 @@ botaoSortearBench.addEventListener("click", () => {
             `
         })
 
+
+        
+
         console.log(tabelaBench.innerHTML)
 
         resultadoBench.classList.remove("hidden")
         modalBench.classList.add('hidden')
-        formulario.classList.add("hidden")
-        botaoCripto.classList.add("hidden")
-        botaoSortear.classList.add("hidden")
+
 })
 
 

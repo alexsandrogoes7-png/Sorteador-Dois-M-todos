@@ -19,9 +19,6 @@ const closeModal = () =>{
     container.classList.add('opacity-0','pointer-events-none');
     modal.classList.remove('pointer-events-auto')
     modal.classList.add('pointer-events-none')
-    formulario.classList.remove("hidden")
-    botaoSortear.classList.remove("hidden")
-    botaoCripto.classList.remove("hidden")
 };
 
 button.addEventListener('click',()=>{
