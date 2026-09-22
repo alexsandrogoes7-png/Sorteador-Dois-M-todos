@@ -196,8 +196,6 @@ botaoSortearBench.addEventListener("click", () => {
                 </tr>
             `
         })
-
-
         
 
         console.log(tabelaBench.innerHTML)
