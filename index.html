@@ -40,24 +40,24 @@
       >
 
        
-        <section class="max-w-[500px]">
+        <section class="max-w-lg">
           <p
-            class="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[#a6a1ab] sm:text-xs"
+            class="font-mono text-xs font-bold uppercase tracking-[0.14em] text-zinc-400 sm:text-xs"
           >
             Online&nbsp; — &nbsp;Gratuito
           </p>
 
           <h1
-            class="mt-4 max-w-[480px] font-sora text-7xl font-extrabold uppercase  tracking-[-0.045em] text-[#f8f7fa] sm:text-[56px] lg:text-[61px]"
+            class="mt-4 max-w-lg font-sora text-7xl font-extrabold uppercase  tracking-tighter text-zinc-50 sm:text-6xl lg:text-6xl"
           >
             Sorteador<br />
             de números
           </h1>
 
-          <div class="mt-10 max-w-[400px] space-y-7 sm:mt-12">
+          <div class="mt-10 max-w-md space-y-7 sm:mt-12">
             <article>
               <h2
-                class="flex items-center gap-2 font-flex text-[11px] font-medium text-[#c388f7]"
+                class="flex items-center gap-2 font-flex text-xs font-medium text-purple-400"
               >
                 <span class="text-base leading-none">
                   <img src="assets/AvatarIcon.svg" alt="Icone Avatar">
@@ -66,7 +66,7 @@
               </h2>
 
               <p
-                class="mt-1 pl-5 font-flex text-[10px] leading-[1.55] text-[#aaa6af] sm:text-[11px]"
+                class="mt-1 pl-5 font-flex text-xs leading-relaxed text-zinc-400 sm:text-xs"
               >
                 O sorteador utiliza um algoritmo de geração aleatória para criar
                 números dentro do intervalo especificado pelo usuário.
@@ -75,7 +75,7 @@
 
             <article>
               <h2
-                class="flex items-center gap-2 font-flex text-[11px] font-medium text-[#c388f7]"
+                class="flex items-center gap-2 font-flex text-xs font-medium text-purple-400"
               >
                 <span class="text-base leading-none">
                   <img src="assets/AvatarIcon.svg" alt="Icone Avatar">
@@ -84,7 +84,7 @@
               </h2>
 
               <p
-                class="mt-1 pl-5 font-flex text-[10px] leading-[1.55] text-[#aaa6af] sm:text-[11px]"
+                class="mt-1 pl-5 font-flex text-xs leading-relaxed text-zinc-400 sm:text-xs"
               >
                 Sim, você pode definir os valores mínimo e máximo para o
                 intervalo dos números sorteados.
@@ -96,12 +96,12 @@
         
         <section
           id="painel-sorteador"
-          class="w-full max-w-[390px] justify-self-center lg:justify-self-end"
+          class="w-full max-w-sm justify-self-center lg:justify-self-end"
         >
 
 
           <div id="modal-area">
-            <button class="open-modal-button group mt-10 flex h-10 w-full items-center gap-2 rounded-md font-flex text-[11px] font-bold uppercase text-white transition mb-14 cursor-pointer underline decoration-2 decoration-purple-500">Benchmark</button>
+            <button class="open-modal-button group mt-10 flex h-10 w-full items-center gap-2 rounded-md font-flex text-xs font-bold uppercase text-white transition mb-14 cursor-pointer underline decoration-2 decoration-purple-500">Benchmark</button>
             
 
               <div class="modal-container w-full h-screen bg-black/80 fixed left-0 top-0 grid grid-cols-2 items-center opacity-0 pointer-events-none transition-opacity duration-150">
@@ -111,18 +111,18 @@
                   <div id="modal-bench-area">
 
                     <div id="bench-area" class="">
-                      <h2 class="font-flex text-[20px] font-bold uppercase text-white">
+                      <h2 class="font-flex text-xl font-bold uppercase text-white">
                         Quero sortear:
                       </h2>
 
-                      <p class="mt-1 max-w-[350px] font-flex font-medium [14px] leading-[1.55] text-white">
+                      <p class="mt-1 max-w-sm font-flex font-medium text-sm leading-relaxed text-white">
                         Comparação entre dois métodos de sorteio.
                       </p>
 
                       <div class="mt-7 flex gap-4">
 
                         <label class="block">
-                          <span class="mb-2 block font-flex text-[10px] font-bold uppercase text-white">
+                          <span class="mb-2 block font-flex text-xs font-bold uppercase text-white">
                             Números
                           </span>
 
@@ -131,12 +131,12 @@
                             type="text"
                             value="10"
                             aria-label="Quantidade de números"
-                            class="h-[56px] w-[86px] rounded-md border border-transparent bg-[#17171e]/60 px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-[#76628a] focus:border-[#c388f7]"
+                            class="h-14 w-[86px] rounded-md border border-transparent bg-zinc-900/60 px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-purple-500 focus:border-purple-400"
                           />
                         </label>
 
                         <label class="block">
-                          <span class="mb-2 block font-flex text-[10px] font-bold uppercase text-white">
+                          <span class="mb-2 block font-flex text-xs font-bold uppercase text-white">
                             Até
                           </span>
 
@@ -145,7 +145,7 @@
                             type="text"
                             value="100"
                             aria-label="Número final"
-                            class="h-[56px] w-[86px] rounded-md border border-transparent bg-[#17171e]/60 px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-[#76628a] focus:border-[#c388f7]"
+                            class="h-14 w-[86px] rounded-md border border-transparent bg-zinc-900/60 px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-purple-500 focus:border-purple-400"
                           />
                         </label>
 
@@ -154,7 +154,7 @@
                       <button
                         id="btn-sortear-bench"
                         type="button"
-                        class="group flex mt-10 h-10 w-full items-center justify-center gap-2 rounded-md bg-[#121212] font-flex text-[11px] font-bold uppercase text-white transition hover:bg-[#302c3d] focus:outline-none focus:ring-1 focus:ring-[#c388f7] cursor-pointer"
+                        class="group flex mt-10 h-10 w-full items-center justify-center gap-2 rounded-md bg-zinc-950 font-flex text-xs font-bold uppercase text-white transition hover:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-purple-400 cursor-pointer"
                       >
                         <span id="bench-button">Gerar Benchmark</span>
 
@@ -183,32 +183,32 @@
                       <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label class="text-sm font-semibold text-white">Normal</label>
-                            <div class="mt-2 rounded-md border border-[#24222e] bg-[#17171e] px-4 py-3">
-                                <span class="text-lg font-bold text-[#C58DE7]">0</span>
+                            <div class="mt-2 rounded-md border border-zinc-800 bg-zinc-900 px-4 py-3">
+                                <span class="text-lg font-bold text-purple-300">0</span>
                             </div>
                         </div>
 
                         <div>
                             <label class="text-sm font-semibold text-white">Criptografado</label>
-                            <div class="mt-2 rounded-md border border-[#24222e] bg-[#17171e] px-4 py-3">
-                                <span class="text-lg font-bold text-[#C58DE7]">0</span>
+                            <div class="mt-2 rounded-md border border-zinc-800 bg-zinc-900 px-4 py-3">
+                                <span class="text-lg font-bold text-purple-300">0</span>
                             </div>
                         </div>
                       </div>
                     </div>
 
-                    <div class="max-h-[20rem] overflow-y-auto mt-5">
+                    <div class="max-h-80 overflow-y-auto mt-5">
 
-                      <table class="w-full overflow-hidden rounded-md bg-[#0f0e13]">
-                        <thead class="bg-[#0f0e13]">
+                      <table class="w-full overflow-hidden rounded-md bg-zinc-950">
+                        <thead class="bg-zinc-950">
                           <tr>
-                            <th class="px-4 py-3 text-center font-flex text-[10px] font-bold uppercase text-[#a6a1ab]">
+                            <th class="px-4 py-3 text-center font-flex text-xs font-bold uppercase text-zinc-400">
                               Nº
                             </th>
-                            <th class="px-4 py-3 text-center font-flex text-[10px] font-bold uppercase text-[#a6a1ab]">
+                            <th class="px-4 py-3 text-center font-flex text-xs font-bold uppercase text-zinc-400">
                               Sorteio normal
                             </th>
-                            <th class="px-4 py-3 text-center font-flex text-[10px] font-bold uppercase text-[#a6a1ab]">
+                            <th class="px-4 py-3 text-center font-flex text-xs font-bold uppercase text-zinc-400">
                               Sorteio criptografado
                             </th>
                           </tr>
@@ -221,7 +221,7 @@
                     </div>
 
                     <button
-                      class="flex h-10 w-full items-center justify-center gap-2 rounded-md bg-[#24222e] font-flex text-[11px] font-bold uppercase text-white transition hover:bg-[#302c3d] focus:outline-none focus:ring-1 focus:ring-[#c388f7] mt-4"
+                      class="flex h-10 w-full items-center justify-center gap-2 rounded-md bg-zinc-800 font-flex text-xs font-bold uppercase text-white transition hover:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-purple-400 mt-4"
                       id="btn-retornar"
                       type="button"
                     >
@@ -236,7 +236,7 @@
 
           <!-- <div id="bench-area">
             <div class="mb-4">
-                  <span class="block font-flex text-[10px] font-bold uppercase text-[#a6a1ab]">
+                  <span class="block font-flex text-xs font-bold uppercase text-zinc-400">
                     Quantidade de Números
                   </span>
             </div>
@@ -247,14 +247,14 @@
                     type="text"
                     value="10"
                     aria-label="Número final"
-                    class="h-[56px] w-[86px] rounded-md border border-transparent bg-[#17171e] px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-[#76628a] focus:border-[#c388f7]"
+                    class="h-14 w-[86px] rounded-md border border-transparent bg-zinc-900 px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-purple-500 focus:border-purple-400"
                   />
                 </label>
 
               <button
                 id="btn-sortear-bench"
                 type="button"
-                class="group flex h-10 w-full items-center justify-center gap-2 rounded-md bg-[#24222e] font-flex text-[11px] font-bold uppercase text-white transition hover:bg-[#302c3d] focus:outline-none focus:ring-1 focus:ring-[#c388f7]"
+                class="group flex h-10 w-full items-center justify-center gap-2 rounded-md bg-zinc-800 font-flex text-xs font-bold uppercase text-white transition hover:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-purple-400"
               >
                 <span id="bench-button">Benchmark</span>
 
@@ -272,13 +272,11 @@
           </div>      -->
 
           <div id="formulario">
-            <h2 class="font-flex text-[14px] font-bold uppercase text-white">
+            <h2 class="font-flex text-sm font-bold uppercase text-white">
               Quero sortear:
             </h2>
 
-            <p
-              class="mt-1  font-flex text-zinc-400/90"
-            >
+            <p class="mt-1 max-w-md font-flex font-medium text-sm leading-relaxed text-zinc-400">
               defina o intervalo e a quantidade de números, clique em “Sortear”
               e veja os resultados na tela. É rápido e fácil!
             </p>
@@ -288,7 +286,7 @@
               
               <label class="block ">
                 <span
-                  class="mb-2 block font-flex text-[10px] font-bold uppercase text-zinc-400/80
+                  class="mb-2 block font-flex text-xs font-bold uppercase text-zinc-400/80
 
 "
                 >
@@ -300,14 +298,14 @@
                   type="text"
                   value=""
                   aria-label="Quantidade de números"
-                  class="h-[56px] w-[86px] rounded-md border border-transparent bg-[#17171e] px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-[#76628a] focus:border-[#c388f7]"
+                  class="h-14 w-20 rounded-md border border-transparent bg-zinc-900 px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-purple-500 focus:border-purple-400"
                 />
               </label>
 
               
               <label class="block">
                 <span
-                  class="mb-2 block font-flex text-[10px] font-bold uppercase text-zinc-400/80"
+                  class="mb-2 block font-flex text-xs font-bold uppercase text-zinc-400/80"
                 >
                   De
                 </span>
@@ -317,14 +315,14 @@
                   type="text"
                   value=""
                   aria-label="Número inicial"
-                  class="h-[56px] w-[86px] rounded-md border border-transparent bg-[#17171e] px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-[#76628a] focus:border-[#c388f7]"
+                  class="h-14 w-20 rounded-md border border-transparent bg-zinc-900 px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-purple-500 focus:border-purple-400"
                 />
               </label>
 
               
               <label class="block">
                 <span
-                  class="mb-2 block font-flex text-[10px] font-bold uppercase text-zinc-400/80"
+                  class="mb-2 block font-flex text-xs font-bold uppercase text-zinc-400/80"
                 >
                   Até
                 </span>
@@ -334,7 +332,7 @@
                   type="text"
                   value=""
                   aria-label="Número final"
-                  class="h-[56px] w-[86px] rounded-md border border-transparent bg-[#17171e] px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-[#76628a] focus:border-[#c388f7]"
+                  class="h-14 w-20 rounded-md border border-transparent bg-zinc-900 px-2 text-center font-flex text-lg font-bold text-white outline-none transition hover:border-purple-500 focus:border-purple-400"
                 />
               </label>
 
@@ -344,7 +342,7 @@
 
           <div id="resultado" class="mt-7 hidden">
 
-            <h2 class="mb-8 text-center font-flex text-[14px] font-bold uppercase text-white">
+            <h2 class="mb-8 text-center font-flex text-sm font-bold uppercase text-white">
               Resultado do sorteio
             </h2>
 
@@ -356,7 +354,7 @@
             <button
               id="btn-sortear"
               type="button"
-              class="group mt-10 flex h-10 w-full items-center justify-center gap-2 rounded-md bg-[#24222e] font-flex text-[11px] font-bold uppercase text-white transition hover:bg-[#302c3d] focus:outline-none focus:ring-1 focus:ring-[#c388f7]"
+              class="group mt-10 flex h-10 w-full items-center justify-center gap-2 rounded-md bg-zinc-800 font-flex text-xs font-bold uppercase text-white transition hover:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-purple-400"
             >
               <span id="texto-botao">Sorteio Comum</span>
 
@@ -374,7 +372,7 @@
             <button
               id="btn-sortear-cripto"
               type="button"
-              class="group mt-10 flex h-10 w-full items-center justify-center gap-2 rounded-md bg-[#24222e] font-flex text-[11px] font-bold uppercase text-white transition hover:bg-[#302c3d] focus:outline-none focus:ring-1 focus:ring-[#c388f7]"
+              class="group mt-10 flex h-10 w-full items-center justify-center gap-2 rounded-md bg-zinc-800 font-flex text-xs font-bold uppercase text-white transition hover:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-purple-400"
             >
               <span id="texto-botao-cripto">Sorteio Criptogrado</span>
 
