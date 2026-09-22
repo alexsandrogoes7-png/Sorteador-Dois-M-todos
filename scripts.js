@@ -197,6 +197,8 @@ botaoSortearBench.addEventListener("click", () => {
             `
         })
         
+        
+
 
         console.log(tabelaBench.innerHTML)
 
@@ -233,5 +235,9 @@ botaoRetornar.addEventListener("click", () => {
         
 //     }
 // })
+
+
+
+
 
 
