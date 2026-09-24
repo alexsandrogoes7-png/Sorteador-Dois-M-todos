@@ -20,20 +20,32 @@ const resultadoBench = document.querySelector("#resultado-bench")
 const tabelaBench = document.querySelector("#tabela-bench")
 const botaoRetornar = document.querySelector("#btn-retornar")
 const modalBench = document.querySelector("#modal-bench-area")
+const inputFimBench = document.querySelector("#num-max")
+
+const repeticoesNormalElemento = document.querySelector("#repeticoes-normal")
+const repeticoesCriptoElemento = document.querySelector("#repeticoes-cripto")
+
 
 // Sortear Cripto
 
 const botaoCripto = document.querySelector("#btn-sortear-cripto")
+const textoBotaoCripto = document.querySelector("#texto-botao-cripto")
+const iconeSortearCripto = document.querySelector("#icone-sortear-cripto")
+const iconeNovamenteCripto = document.querySelector("#icone-novamente-cripto")
 
 botaoSortear.addEventListener("click", () => {
+
     if (formulario.classList.contains("hidden")) {
+
         formulario.classList.remove("hidden")
         benchArea.classList.remove("hidden")
         botaoCripto.classList.remove("hidden")
         resultado.classList.add("hidden")
+
         textoBotao.textContent = "Sortear"
         iconeSortear.classList.remove("hidden")
         iconeNovamente.classList.add("hidden")
+
         return
     }
 
@@ -42,18 +54,23 @@ botaoSortear.addEventListener("click", () => {
     const fim = Number(inputFim.value)
 
     if (quantidade <= 0) {
+
         alert("Digite uma quantidade válida de números.")
+
         return
     }
 
     if (inicio >= fim) {
+
         alert("O número inicial deve ser menor que o número final.")
+
         return
     }
 
     const numeros = []
 
     while (numeros.length < quantidade) {
+
         const numeroAleatorio = Math.floor(
             Math.random() * (fim - inicio + 1)
         ) + inicio
@@ -67,67 +84,107 @@ botaoSortear.addEventListener("click", () => {
     numerosSorteados.innerHTML = ""
 
     numeros.forEach((numero) => {
+
         numerosSorteados.innerHTML += `
+
             <div
                 data-numero="${numero}"
-                class="flex h-12 w-12 items-center justify-center rounded-md font-mono text-lg font-bold opacity-0"
-                style="
-                    background-color: #C58DE7;
-                    color: #030203;
-                    transform: scale(1.5);
-                "
+                class="flex h-12 w-12 items-center justify-center rounded-md bg-purple-300 font-mono text-lg font-bold text-zinc-950 opacity-0 scale-150"
             >
-                <span style="opacity: 0;">
+
+                <span class="opacity-0">
                     ${numero}
                 </span>
+
             </div>
+
         `
     })
 
     const quadrados = numerosSorteados.children
 
     Array.from(quadrados).forEach((quadrado, index) => {
+
         const numero = quadrado.querySelector("span")
 
-        quadrado.style.transition = "transform 1s ease-in-out"
+        quadrado.classList.add(
+            "transition-[scale,rotate]",
+            "duration-1000",
+            "ease-in-out"
+        )
 
         setTimeout(() => {
-            quadrado.style.transform = "scale(2.5) rotate(360deg)"
-            quadrado.style.opacity = "1"
+
+            quadrado.classList.remove("opacity-0", "scale-150")
+
+            quadrado.classList.add(
+                "opacity-100",
+                "scale-250",
+                "rotate-360"
+            )
 
             setTimeout(() => {
-                numero.style.opacity = "1"
+
+                numero.classList.remove("opacity-0")
+                numero.classList.add("opacity-100")
 
                 setTimeout(() => {
-                    quadrado.style.backgroundColor = "transparent"
-                    numero.style.color = "#C58DE7"
+
+                    quadrado.classList.remove("bg-purple-300")
+                    quadrado.classList.add("bg-transparent")
+
+                    numero.classList.remove("text-zinc-950")
+                    numero.classList.add("text-purple-300")
+
                 }, 300)
+
             }, 500)
+
         }, index * 1000)
     })
 
     resultado.classList.remove("hidden")
+
     textoBotao.textContent = "Sortear novamente"
+
     iconeSortear.classList.add("hidden")
     iconeNovamente.classList.remove("hidden")
 
     console.log(numeros)
 })
 
+function contarRepeticoes(listNumbers){
+    const repeatingNumbers = new Set()
+
+    for (let i = 0; i < listNumbers.length; i++){
+        const numbersDuplicated = listNumbers.filter(
+            number => number === listNumbers[i]
+        )
+
+        if(numbersDuplicated.length > 1){
+            repeatingNumbers.add(listNumbers[i])
+        }
+    }
+
+    return Array.from(repeatingNumbers).length
+}
+
 botaoSortearBench.addEventListener("click", () => {
     const quantidadeBench = Number(inputQuantidadeBench.value)
     const numeros = []
     const numerosCripto = []
 
+    const fimBench = Number(inputFimBench.value)
+
     while (numeros.length < quantidadeBench) {
         const numeroAleatorio = Math.floor(
-            Math.random() * (100 - 1 + 1) + 1
+            Math.random() * (fimBench - 1 + 1) + 1
         )
 
         const array = new Uint32Array(1)
         crypto.getRandomValues(array)
 
-        const numeroCripto = (array[0] % 100) + 1
+        const numeroCripto = (array[0] % fimBench) + 1
 
         numeros.push(numeroAleatorio)
         numerosCripto.push(numeroCripto)
@@ -135,6 +192,12 @@ botaoSortearBench.addEventListener("click", () => {
 
     console.log(numeros)
     console.log(numerosCripto)
+
+    const repeticoesNormal = contarRepeticoes(numeros)
+    const repeticoesCripto = contarRepeticoes(numerosCripto)
+
+    repeticoesNormalElemento.textContent = repeticoesNormal
+    repeticoesCriptoElemento.textContent = repeticoesCripto
 
     numeros.forEach((numero, index) => {
         tabelaBench.innerHTML += `
@@ -171,14 +234,128 @@ botaoRetornar.addEventListener("click", () => {
     tabelaBench.innerHTML = ""
 })
 
-// botaoCripto.addEventListener("click", () => {
-//     const quantidade = Number(inputQuantidade.value)
-//     const inicio = Number(inputInicio.value)
-//     const fim = Number(inputFim.value)
-//     const numeros = []
+botaoCripto.addEventListener("click", () => {
 
-//     while (numeros.length < quantidade) {
-//         const array = new Uint32Array(1)
-//         crypto.getRandomValues(array)
-//     }
-// })
+    if (formulario.classList.contains("hidden")) {
+
+        formulario.classList.remove("hidden")
+        benchArea.classList.remove("hidden")
+        botaoSortear.classList.remove("hidden")
+        resultado.classList.add("hidden")
+
+        textoBotaoCripto.textContent = "Sorteio Criptografado"
+        iconeSortearCripto.classList.remove("hidden")
+        iconeNovamenteCripto.classList.add("hidden")
+
+        return
+    }
+
+    const quantidade = Number(inputQuantidade.value)
+    const inicio = Number(inputInicio.value)
+    const fim = Number(inputFim.value)
+
+    if (quantidade <= 0) {
+
+        alert("Digite uma quantidade válida de números.")
+
+        return
+    }
+
+    if (inicio >= fim) {
+
+        alert("O número inicial deve ser menor que o número final.")
+
+        return
+    }
+
+    const numeros = []
+
+    while (numeros.length < quantidade) {
+
+        const array = new Uint32Array(1)
+
+        crypto.getRandomValues(array)
+
+        const numeroAleatorio =
+            (array[0] % (fim - inicio + 1)) + inicio
+
+        numeros.push(numeroAleatorio)
+    }
+
+    formulario.classList.add("hidden")
+    botaoSortear.classList.add("hidden")
+
+    numerosSorteados.innerHTML = ""
+
+    numeros.forEach((numero) => {
+
+        numerosSorteados.innerHTML += `
+
+            <div
+                data-numero="${numero}"
+                class="flex h-12 w-12 items-center justify-center rounded-md bg-purple-300 font-mono text-lg font-bold text-zinc-950 opacity-0 scale-150"
+            >
+
+                <span class="opacity-0">
+                    ${numero}
+                </span>
+
+            </div>
+
+        `
+    })
+
+    const quadrados = numerosSorteados.children
+
+    Array.from(quadrados).forEach((quadrado, index) => {
+
+        const numero = quadrado.querySelector("span")
+
+        quadrado.classList.add(
+            "transition-[scale,rotate]",
+            "duration-1000",
+            "ease-in-out"
+        )
+
+        setTimeout(() => {
+
+            quadrado.classList.remove(
+                "opacity-0",
+                "scale-150"
+            )
+
+            quadrado.classList.add(
+                "opacity-100",
+                "scale-250",
+                "rotate-360"
+            )
+
+            setTimeout(() => {
+
+                numero.classList.remove("opacity-0")
+                numero.classList.add("opacity-100")
+
+                setTimeout(() => {
+
+                    quadrado.classList.remove("bg-purple-300")
+                    quadrado.classList.add("bg-transparent")
+
+                    numero.classList.remove("text-zinc-950")
+                    numero.classList.add("text-purple-300")
+
+                }, 300)
+
+            }, 500)
+
+        }, index * 1000)
+    })
+
+    resultado.classList.remove("hidden")
+
+    textoBotaoCripto.textContent = "Sortear novamente"
+
+    iconeSortearCripto.classList.add("hidden")
+    iconeNovamenteCripto.classList.remove("hidden")
+
+    console.log(numeros)
+})
